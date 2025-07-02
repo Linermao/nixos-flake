@@ -1,4 +1,4 @@
-{ inputs, pkgs, ... }:
+{ inputs, pkgs, paths, ... }:
 
 {
   home.packages = with pkgs; [
@@ -20,5 +20,12 @@
     };
     # enableNvidiaPatches = false;
     systemd.enable = true;
+  };
+
+  home.file = {
+    ".config/hypr" = {
+      source = "${paths.configs}/.config/hypr";
+      recursive = true;
+    };
   };
 }

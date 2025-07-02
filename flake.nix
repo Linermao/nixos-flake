@@ -22,7 +22,6 @@
         config.allowUnfree = true;
       };
       lib = nixpkgs.lib;
-      configsPath = ./configs;
     in {
       nixosConfigurations = {
         desktop = nixpkgs.lib.nixosSystem {
@@ -30,7 +29,8 @@
           modules = [ ./hosts/desktop ];
           specialArgs = {
             host = "nixos_desktop";
-            inherit self inputs configsPath;
+            paths = { configs = ./configs; };
+            inherit self inputs configsPath pkgs;
           };
         };
       };
