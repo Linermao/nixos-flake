@@ -30,7 +30,7 @@
           specialArgs = {
             host = "nixos_desktop";
             paths = { configs = ./configs; };
-            inherit self inputs paths pkgs;
+            inherit self inputs pkgs;
           };
         };
       };
