@@ -1,21 +1,14 @@
-{ config, pkgs, ... }:
+{ configsPath, pkgs, ... }:
 
 {
-  programs.waybar.enable = true;
-  programs.waybar = {
-    settings = {
-      mainBar = {
-        modules-left = [
-          "hyprland/workspaces"
-          "hyprland/window"
-        ];
-        modules-center = [
-          "clock"
-        ];
-        modules-right = [
-          "network"
-        ];
-      };
+  home.packages = with pkgs; [
+      waybar
+  ];
+  
+  home.file = {
+    ".config/waybar" = {
+      source = "${configsPath}/.config/waybar";
+      recursive = true;
     };
-  };
+  }
 }
