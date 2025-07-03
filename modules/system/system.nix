@@ -1,4 +1,4 @@
-{ ... }:
+{ paths, ... }:
 
 {
   time.timeZone = "Asia/Shanghai";
@@ -10,4 +10,10 @@
   ];
 
   system.stateVersion = "25.05";
+
+  environment.sessionVariables = {
+    NIX_TEST = "TEST";
+    NIX_ROOT = "${paths.root}";
+    NIX_RESOURCES = "${paths.resources}";
+  };
 }
