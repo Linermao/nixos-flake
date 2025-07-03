@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ paths, ... }:
 
 {
   programs.kitty = {
@@ -8,6 +8,13 @@
     settings = {
       enable_audio_bell = "no";
       cursor_shape = "beam";
+    };
+  };
+
+  home.file = {
+    ".config/kitty" = {
+      source = "${paths.configs}/.config/kitty";
+      recursive = true;
     };
   };
 }

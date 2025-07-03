@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ config, pkgs, paths, ... }:
 
 {
   imports = [
@@ -10,6 +10,7 @@
   ];
 
   home.sessionVariables = {
-    nix_resources = "~/nix_flakes/resources";
-  }
+    NIX_ROOT = "${paths.root}";
+    NIX_RESOURCES = "${paths.resources}";
+  };
 }
