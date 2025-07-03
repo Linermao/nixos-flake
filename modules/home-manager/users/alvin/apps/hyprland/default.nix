@@ -1,20 +1,14 @@
-{ config, pkgs, inputs, configsPath, resourcesPath, ... }:
+{ inputs, ... }:
 
-let
-  sharedArgs = {
-    inherit config pkgs inputs configsPath resourcesPath;
-  };
-
-  modules = [
+{
+  imports = [
+    # ./config
     ./hyprland.nix
-    ./waybar.nix
     ./rofi.nix
     ./swww.nix
+    ./waybar.nix
+    inputs.hyprland.homeManagerModules.default
   ];
-in {
-  imports =
-    (builtins.map (m: import m sharedArgs) modules)
-    ++ [ inputs.hyprland.homeManagerModules.default ];
 
   # variables
   home.sessionVariables = {

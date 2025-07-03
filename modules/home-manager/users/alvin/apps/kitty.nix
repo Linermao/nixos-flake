@@ -1,4 +1,4 @@
-{ configsPath, ... }:
+{ ... }:
 
 {
   programs.kitty = {
@@ -13,7 +13,7 @@
 
   home.file = {
     ".config/kitty" = {
-      source = "${configsPath}/.config/kitty";
+      source = ../configs/.configs/kitty;
       recursive = true;
       force = true;
     };

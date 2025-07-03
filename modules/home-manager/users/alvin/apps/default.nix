@@ -1,9 +1,7 @@
-{ config, pkgs, inputs, configsPath, resourcesPath, ... }:
+{ ... }:
 
-let
-  sharedArgs = { inherit config pkgs inputs configsPath resourcesPath; };
-in {
-  imports = builtins.map (path: import path sharedArgs) [
+{
+  imports = [
     ./hyprland
 
     ./dolphin.nix

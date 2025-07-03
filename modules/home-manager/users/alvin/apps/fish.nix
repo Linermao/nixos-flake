@@ -5,7 +5,7 @@
 
   home.file = {
     ".config/fish" = {
-      source = "${configsPath}/.config/fish";
+      source = ../configs/.config/fish;
       recursive = true;
       force = true;
     };
