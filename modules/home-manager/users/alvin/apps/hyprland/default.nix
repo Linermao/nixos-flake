@@ -1,4 +1,4 @@
-{config, pkgs, inputs, configsPath, resourcesPath, ... }:
+{ config, pkgs, inputs, configsPath, resourcesPath, ... }:
 
 let
   sharedArgs = {
@@ -11,12 +11,10 @@ let
     ./rofi.nix
     ./swww.nix
   ];
-in
-{
-  imports = [
-    builtins.map (m: import m sharedArgs) modules
-    inputs.hyprland.homeManagerModules.default
-  ];
+in {
+  imports =
+    (builtins.map (m: import m sharedArgs) modules)
+    ++ [ inputs.hyprland.homeManagerModules.default ];
 
   # variables
   home.sessionVariables = {

@@ -1,20 +1,15 @@
-{ config, pkgs, inputs, configsPath, resourcesPath, ... }:
+{ configsPath, resourcesPath, ... }:
 
 let
-  sharedArgs = {
-    inherit config pkgs inputs configsPath resourcesPath;
-  };
-
-  modules = [
+  sharedArgs = { inherit configsPath resourcesPath; };
+in {
+  imports = builtins.map (path: import path sharedArgs) [
     ./hyprland
-    
+
     ./dolphin.nix
     ./firefox.nix
     ./fish.nix
     ./git.nix
     ./kitty.nix
   ];
-in
-{
-  imports = builtins.map (m: import m sharedArgs) modules;
 }

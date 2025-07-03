@@ -7,7 +7,7 @@ let
 in
 {
   imports = [
-    (import ./apps { inherit config pkgs inputs configsPath resourcesPath; })
+    (import ./apps { inherit configsPath resourcesPath; })
   ];
 
   home.packages = with pkgs; [
@@ -16,7 +16,7 @@ in
 
   home.file = {
     "nixos/resources" = {
-      source = "./resources";
+      source = "${resourcesPath}";
       recursive = true;
       force = true;
     };
