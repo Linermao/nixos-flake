@@ -18,9 +18,6 @@ end
 set fish_pager_color_prefix cyan
 set fish_color_autosuggestion brblack 
 
-# List Directory
-alias ls='ls -al   --icons=auto'
-
 # Handy change dir shortcuts
 abbr .. 'cd ..'
 abbr ... 'cd ../..'
