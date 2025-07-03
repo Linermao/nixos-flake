@@ -1,11 +1,11 @@
-{ inputs, pkgs, ... }:
+{ inputs, pkgs, configsPath, resourcesPath, ... }:
 {
   imports = [
     # ./config
-    ./hyprland.nix
-    ./waybar.nix
-    ./rofi.nix
-    ./swww.nix
+    (import ./hyprland.nix { inherit configsPath resourcesPath; })
+    (import ./waybar.nix { inherit configsPath resourcesPath; })
+    (import ./rofi.nix { inherit configsPath resourcesPath; })
+    (import ./swww.nix { inherit configsPath resourcesPath; })
     inputs.hyprland.homeManagerModules.default
   ];
 

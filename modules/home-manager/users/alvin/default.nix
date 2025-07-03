@@ -7,7 +7,7 @@ let
 in
 {
   imports = [
-    (import ./apps { inherit config pkgs configsPath resourcesPath; })
+    (import ./apps { inherit configsPath resourcesPath; })
   ];
 
   home.packages = with pkgs; [

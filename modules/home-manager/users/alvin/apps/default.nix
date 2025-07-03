@@ -1,12 +1,12 @@
-{ ... }:
+{ configsPath, resourcesPath, ... }:
 {
   imports = [
-    ./hyprland
+    (import ./hyprland { inherit configsPath resourcesPath; })
 
-    ./dolphin.nix
-    ./firefox.nix
-    ./fish.nix
-    ./git.nix
-    ./kitty.nix
+    (import ./dolphin.nix { inherit configsPath resourcesPath; })
+    (import ./firefox.nix { inherit configsPath resourcesPath; })
+    (import ./fish.nix { inherit configsPath resourcesPath; })
+    (import ./git.nix { inherit configsPath resourcesPath; })
+    (import ./kitty.nix { inherit configsPath resourcesPath; })
   ];
 }
