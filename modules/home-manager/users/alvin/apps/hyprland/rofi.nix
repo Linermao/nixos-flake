@@ -1,7 +1,7 @@
 { config, pkgs, configsPath, ... }:
 
 let
-  rofi-launch = pkgs.writeShellScriptBin "rofi_lanchun" (builtins.readFile ../../scripts/rofi_lanchun.sh);
+  rofi-launch = pkgs.writeShellScriptBin "rofi_launch" (builtins.readFile ../../scripts/rofi_launch.sh);
 in
 {
   home.packages = with pkgs; [ 

@@ -1,7 +1,7 @@
-{ configsPath, resourcesPath, ... }:
+{ config, pkgs, inputs, configsPath, resourcesPath, ... }:
 
 let
-  sharedArgs = { inherit configsPath resourcesPath; };
+  sharedArgs = { inherit config pkgs inputs configsPath resourcesPath; };
 in {
   imports = builtins.map (path: import path sharedArgs) [
     ./hyprland
