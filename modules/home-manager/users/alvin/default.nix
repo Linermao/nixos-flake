@@ -1,8 +1,13 @@
 { config, pkgs, paths, ... }:
 
+let
+  userRoot = builtins.dirOf ./.;
+  configsPath = "${userRoot}/configs";
+  resourcesPath = "${userRoot}/resources";
+in
 {
   imports = [
-    ./apps
+    (import ./apps { inherit config pkgs configsPath resourcesPath; })
   ];
 
   home.packages = with pkgs; [

@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, configsPath, ... }:
 
 let
   rofi-launch = pkgs.writeShellScriptBin "rofi_lanchun" (builtins.readFile ../../scripts/rofi_lanchun.sh);
@@ -11,7 +11,7 @@ in
 
   home.file = {
     ".config/rofi" = {
-      source = ../../configs/.config/rofi;
+      source = "${configsPath}/.config/rofi";
       recursive = true;
       force = true;
     };

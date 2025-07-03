@@ -1,4 +1,4 @@
-{ inputs, pkgs, ... }:
+{ inputs, pkgs, configsPath, ... }:
 
 {
   systemd.user.targets.hyprland-session.Unit.Wants = [
@@ -20,7 +20,7 @@
 
   home.file = {
     ".config/hypr" = {
-      source = "../../configs/.config/hypr";
+      source = "${configsPath}/.config/hypr";
       recursive = true;
       force = true;
     };
