@@ -1,4 +1,4 @@
-{ paths, pkgs, ... }:
+{ pkgs, ... }:
 
 {
   home.packages = with pkgs; [
@@ -9,7 +9,7 @@
 
   home.file = {
     ".config/waybar" = {
-      source = "${paths.configs}/.config/waybar";
+      source = "../../configs/.config/waybar";
       recursive = true;
       force = true;
     };

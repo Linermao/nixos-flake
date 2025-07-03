@@ -27,24 +27,21 @@
       host = "nixos_desktop";
       paths = { 
         root = "${flakeDir}";
-        configs = ./configs;
-        resources = "${flakeDir}/resources";
       };
     in {
       nixosConfigurations = {
         desktop = nixpkgs.lib.nixosSystem {
           inherit system;
           specialArgs = {
-
             inherit self inputs pkgs host paths;
           };
 
           modules = [ 
             ./hosts/desktop
-            { 
+            {
               home-manager.extraSpecialArgs = {
-                inherit inputs pkgs host paths
-              }; 
+                inherit inputs pkgs host paths;
+              };
             }
           ];
         };

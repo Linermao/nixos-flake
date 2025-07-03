@@ -1,11 +1,11 @@
-{ paths, ... }:
+{ ... }:
 
 {
   programs.fish.enable = true;
 
   home.file = {
     ".config/fish" = {
-      source = "${paths.configs}/.config/fish";
+      source = "../configs/.config/fish";
       recursive = true;
       force = true;
     };
