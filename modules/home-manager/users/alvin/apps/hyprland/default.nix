@@ -3,6 +3,9 @@
   imports = [
     # ./config
     ./hyprland.nix
+    ./waybar.nix
+    ./rofi.nix
+    ./swww.nix
     inputs.hyprland.homeManagerModules.default
   ];
 

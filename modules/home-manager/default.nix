@@ -9,7 +9,7 @@
 
     users = {
       alvin = {
-        imports = [ ./users/alvin.nix ];
+        imports = [ ./users/alvin ];
         home.username = "alvin";
         home.homeDirectory = "/home/alvin";
         home.stateVersion = "25.05";
@@ -17,7 +17,7 @@
       };
 
       # Linermao = {
-      #   imports = [ ./users/Linermao.nix ];
+      #   imports = [ ./users/Linermao ];
       #   home.username = "Linermao";
       #   home.homeDirectory = "/home/Linermao";
       #   home.stateVersion = "25.05";

@@ -29,7 +29,9 @@
           modules = [ ./hosts/desktop ];
           specialArgs = {
             host = "nixos_desktop";
-            paths = { configs = ./configs; };
+            paths = { 
+              configs = ./configs;
+            };
             inherit self inputs pkgs;
           };
         };

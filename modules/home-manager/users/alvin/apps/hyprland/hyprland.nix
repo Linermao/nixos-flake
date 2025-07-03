@@ -1,10 +1,6 @@
 { inputs, pkgs, paths, ... }:
 
 {
-  home.packages = with pkgs; [
-    swww
-  ];
-
   systemd.user.targets.hyprland-session.Unit.Wants = [
     "xdg-desktop-autostart.target"
   ];

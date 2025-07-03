@@ -12,5 +12,7 @@
     git
     vim
     nano
+    tree
+    bottom
   ];
 }
