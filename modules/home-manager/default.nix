@@ -4,6 +4,7 @@
   home-manager = {
     useUserPackages = true;
     useGlobalPkgs = true;
+    extraSpecialArgs = { inherit inputs host pkgs paths; };
     backupFileExtension = "backup";
 
     users = {
