@@ -1,12 +1,20 @@
-{ configsPath, resourcesPath, ... }:
-{
-  imports = [
-    (import ./hyprland { inherit configsPath resourcesPath; })
+{ config, pkgs, inputs, configsPath, resourcesPath, ... }:
 
-    (import ./dolphin.nix { inherit configsPath resourcesPath; })
-    (import ./firefox.nix { inherit configsPath resourcesPath; })
-    (import ./fish.nix { inherit configsPath resourcesPath; })
-    (import ./git.nix { inherit configsPath resourcesPath; })
-    (import ./kitty.nix { inherit configsPath resourcesPath; })
+let
+  sharedArgs = {
+    inherit config pkgs inputs configsPath resourcesPath;
+  };
+
+  modules = [
+    ./hyprland
+    
+    ./dolphin.nix
+    ./firefox.nix
+    ./fish.nix
+    ./git.nix
+    ./kitty.nix
   ];
+in
+{
+  imports = builtins.map (m: import m sharedArgs) modules;
 }
