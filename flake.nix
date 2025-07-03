@@ -23,22 +23,24 @@
       };
       lib = nixpkgs.lib;
 
+      flakeDir = toString self; # get flake dir_name
+      host = "nixos_desktop";
+      paths = { 
+        root = "${flakeDir}";
+        configs = ./configs;
+        resources = "${flakeDir}/resources";
+      };
+
     in {
       nixosConfigurations = {
         desktop = nixpkgs.lib.nixosSystem {
           inherit system;
           modules = [ ./hosts/desktop ];
-          specialArgs = {
-            flakeDir = toString self; # get flake dir_name
-
-            host = "nixos_desktop";
-            paths = { 
-              root = "${flakeDir}";
-              configs = ./configs;
-              resources = "${flakeDir}/resources";
-            };
-            
-            inherit self inputs pkgs;
+          specialArgs = {            
+            inherit self inputs pkgs host paths;
+          };
+          home-manager.extraSpecialArgs = { 
+            inherit inputs pkgs host paths; 
           };
         };
       };

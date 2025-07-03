@@ -15,6 +15,7 @@
     ".config/kitty" = {
       source = "${paths.configs}/.config/kitty";
       recursive = true;
+      force = true;
     };
   };
 }

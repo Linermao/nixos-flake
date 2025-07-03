@@ -9,6 +9,7 @@
     ".config/rofi" = {
       source = "${paths.configs}/.config/rofi";
       recursive = true;
+      force = true;
     };
   };
 }

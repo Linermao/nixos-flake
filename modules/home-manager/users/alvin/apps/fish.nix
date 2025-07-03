@@ -7,6 +7,7 @@
     ".config/fish" = {
       source = "${paths.configs}/.config/fish";
       recursive = true;
+      force = true;
     };
   };
 }

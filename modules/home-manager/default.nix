@@ -1,10 +1,9 @@
-{ inputs, username, host, paths, pkgs, ... }:
+{ inputs, host, paths, pkgs, ... }:
 
 {
   home-manager = {
     useUserPackages = true;
     useGlobalPkgs = true;
-    extraSpecialArgs = { inherit inputs username host pkgs paths; };
     backupFileExtension = "backup";
 
     users = {

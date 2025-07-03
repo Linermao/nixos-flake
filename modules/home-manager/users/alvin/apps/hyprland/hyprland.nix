@@ -22,6 +22,7 @@
     ".config/hypr" = {
       source = "${paths.configs}/.config/hypr";
       recursive = true;
+      force = true;
     };
   };
 }

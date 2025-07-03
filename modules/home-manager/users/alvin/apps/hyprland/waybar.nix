@@ -11,6 +11,7 @@
     ".config/waybar" = {
       source = "${paths.configs}/.config/waybar";
       recursive = true;
+      force = true;
     };
   };
 }
