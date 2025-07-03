@@ -8,5 +8,6 @@
     ./fish.nix
     ./git.nix
     ./kitty.nix
+    ./rust.nix
   ];
 }

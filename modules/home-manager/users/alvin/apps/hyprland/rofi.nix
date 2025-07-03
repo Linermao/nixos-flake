@@ -7,7 +7,7 @@
 
   home.file = {
     ".config/rofi" = {
-      source = "${paths.configs}/Configs/.config/rofi";
+      source = "${paths.configs}/.config/rofi";
       recursive = true;
     };
   };
