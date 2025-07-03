@@ -28,18 +28,20 @@
       nixosConfigurations = {
         desktop = nixpkgs.lib.nixosSystem {
           inherit system;
-          modules = [ ./hosts/desktop ];
           specialArgs = {
-
             host = "nixos_desktop";
             paths = { 
               root = "${flakeDir}";
               configs = ./configs;
               resources = "${flakeDir}/resources";
             };
-            
             inherit self inputs pkgs;
           };
+          
+          modules = [ 
+            ./hosts/desktop
+            { home-manager.extraSpecialArgs = specialArgs; }
+          ];
         };
       };
     };
