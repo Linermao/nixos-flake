@@ -5,5 +5,5 @@
     sddm.enable = true;
     theme = "pixel-sakura";
   };
-  environment.etc."sddm/themes/pixel-sakura".source = "${paths.resources}/sddm-theme";
+  environment.etc."sddm/themes/pixel-sakura".source = ../../resources/sddm-theme;
 }
