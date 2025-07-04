@@ -1,11 +1,6 @@
 { pkgs, inputs, ... }:
 
 {
-  imports = [
-    ./../home-manager
-    inputs.home-manager.nixosModules.home-manager 
-  ];
-
   users.users = {
     alvin = {
       isNormalUser = true;
@@ -14,6 +9,9 @@
         "networkmanager" 
         "video"
         "input"
+      ];
+      openssh.authorizedKeys.keys = [
+        "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAzANerpEp/ZYczKFxJcOdzxDEtb4kP101eUZnhAABV8 LinermaoGemail@gmail.com"
       ];
       shell = pkgs.fish;
     };

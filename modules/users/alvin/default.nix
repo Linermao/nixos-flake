@@ -16,4 +16,11 @@
       force = true;
     };
   };
+
+  home.username = "alvin";
+  home.homeDirectory = "/home/alvin";
+  
+  programs.home-manager.enable = true;
+
+  home.stateVersion = "25.05";
 }

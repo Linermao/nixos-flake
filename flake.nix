@@ -27,6 +27,7 @@
       host = "nixos_desktop";
       paths = { 
         root = "${flakeDir}";
+        resources = "${flakeDir}/resources";
       };
     in {
       nixosConfigurations = {
@@ -44,6 +45,13 @@
               };
             }
           ];
+        };
+      };
+      
+      homeConfigurations = {
+        "alvin@desktop" = home-manager.lib.homeManagerConfiguration {
+          extraSpecialArgs = {inherit inputs outputs;};
+          modules = [ ./modules/users/alvin ];
         };
       };
     };
