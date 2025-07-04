@@ -5,10 +5,6 @@
     ./apps
   ];
 
-  home.packages = with pkgs; [
-    home-manager
-  ];
-
   home.file = {
     "nixos/resources" = {
       source = ./resources;
