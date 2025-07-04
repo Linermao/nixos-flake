@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ inputs, pkgs, ... }:
 
 {
   environment.systemPackages = with pkgs; [
@@ -7,6 +7,9 @@
     wget
     nmap
     tcpdump
+
+    # home-manager
+    inputs.home-manager.packages.${pkgs.system}.default
 
     # basic tools
     git

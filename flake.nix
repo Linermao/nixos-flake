@@ -14,7 +14,7 @@
     hyprland.url = "github:hyprwm/Hyprland";
   };
 
-  outputs = { self, nixpkgs,  ... } @inputs:
+  outputs = { self, nixpkgs, home-manager, ... } @inputs:
     let
       system = "x86_64-linux";
       pkgs = import nixpkgs {
@@ -39,18 +39,14 @@
 
           modules = [ 
             ./hosts/desktop
-            {
-              home-manager.extraSpecialArgs = {
-                inherit inputs pkgs host paths;
-              };
-            }
           ];
         };
       };
       
       homeConfigurations = {
         "alvin@desktop" = home-manager.lib.homeManagerConfiguration {
-          extraSpecialArgs = {inherit inputs outputs;};
+          pkgs = pkgs;
+          extraSpecialArgs = { inherit inputs pkgs host paths; };
           modules = [ ./modules/users/alvin ];
         };
       };
